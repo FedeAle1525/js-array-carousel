@@ -10,7 +10,6 @@ console.log(arrayImg);
 let indexCurrentSlide = 0;
 
 // 3. Recupero i gli elementi "pulsanti freccia"
-
 const leftBtnArrow = document.getElementById('arrow-left');
 const rightBtnArrow = document.getElementById('arrow-right');
 console.log(leftBtnArrow,rightBtnArrow);
@@ -32,22 +31,32 @@ document.querySelector(".slide.active").append(firstSlide);
 // 6. Creo evento sul "pulsante freccia destro": scorrere le immagini al "click"
 rightBtnArrow.addEventListener('click', function(){
 
-  // 6.4 - Aggiungo Controllo per evitare errore e fermare l'azione all'Ultima Slide Possibile
-  if (indexCurrentSlide < slideElements.length - 1){
+  // 6.1 - Aggiungo Controllo per evitare errore e fermare l'azione all'Ultima Slide Possibile
+  if (indexCurrentSlide < arrayImg.length - 1){
 
-  // 6.1 - Recupero Slide Corrente e tolgo la classe "active"
-  let currentSlide = slideElements[indexCurrentSlide];
-  currentSlide.classList.remove('active');
+  // 6.2 - Recupero Slide Attiva e tolgo la classe "active"
+  let activeSlide = document.querySelector(".slide.active");
+  activeSlide.classList.remove('active');
   console.log("Slide Attiva: " + indexCurrentSlide);
 
-  // 6.2 - Incremento Indice per trovare Slide Successiva
+  // 6.3 - Recupero immagine dentro Slide Attiva per rimuoverla
+  let activeSlideImg = document.querySelector(".slide img");
+  activeSlideImg.remove();
+
+  // 6.4 - Incremento Indice per trovare Slide Successiva
   indexCurrentSlide = indexCurrentSlide + 1;
 
-  // 6.3 - Recupero Slide Successiva e aggiungo la classe "active"
-  let nextSlide = slideElements[indexCurrentSlide];
+  // 6.5 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
+  const currentSlide = document.createElement("img");
+  currentSlide.src = arrayImg[indexCurrentSlide];
+
+  // 6.6 - Recupero Slide Successiva e aggiungo la classe "active"
+  let nextSlide = document.querySelector(".slide");
   nextSlide.classList.add('active');
   console.log("Slide Successiva: " + indexCurrentSlide);
 
+  // 6.7 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Successiva
+  document.querySelector(".slide.active").append(currentSlide);
   }
 
 });
