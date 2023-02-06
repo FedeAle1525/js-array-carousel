@@ -64,21 +64,32 @@ rightBtnArrow.addEventListener('click', function(){
 // 7. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
 leftBtnArrow.addEventListener('click', function(){
 
-  // 7.4 - Aggiungo Controllo per evitare errore e fermare l'azione alla Prima Slide Possibile
+  // 7.1 - Aggiungo Controllo per evitare errore e fermare l'azione alla Prima Slide Possibile
   if (indexCurrentSlide > 0){
 
-  // 7.1 - Recupero Slide Corrente e tolgo la classe "active"
-  let currentSlide = slideElements[indexCurrentSlide];
-  currentSlide.classList.remove('active');
+  // 7.2 - Recupero Slide Corrente e tolgo la classe "active"
+  let activeSlide = document.querySelector(".slide.active");
+  activeSlide.classList.remove('active');
   console.log("Slide Attiva: " + indexCurrentSlide);
 
-  // 7.2 - Decremento Indice per trovare Slide Precedente
+  // 7.3 - Recupero immagine dentro Slide Attiva per rimuoverla
+  let activeSlideImg = document.querySelector(".slide img");
+  activeSlideImg.remove();
+
+  // 7.4 - Decremento Indice per trovare Slide Precedente
   indexCurrentSlide = indexCurrentSlide - 1;
 
-  // 7.3 - Recupero Slide Precedente e aggiungo la classe "active"
-  prevSlide = slideElements[indexCurrentSlide];
+  // 7.5 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
+  const currentSlide = document.createElement("img");
+  currentSlide.src = arrayImg[indexCurrentSlide];
+
+  // 7.6 - Recupero Slide Precedente e aggiungo la classe "active"
+  prevSlide = document.querySelector(".slide");
   prevSlide.classList.add('active');
   console.log("Slide Precedente: " + indexCurrentSlide);
+
+  // 6.7 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Precedente
+  document.querySelector(".slide.active").append(currentSlide);
 
   }
 
