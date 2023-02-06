@@ -14,7 +14,8 @@ console.log(leftBtnArrow,rightBtnArrow);
 // 4. Creo evento sul "pulsante freccia destro": scorrere le immagini al "click"
 rightBtnArrow.addEventListener('click', function(){
 
-  // if (indexCurrentSlide < slideElements.length){
+  // 4.4 - Aggiungo Controllo per evitare errore e fermare l'azione all'Ultima Slide Possibile
+  if (indexCurrentSlide < slideElements.length - 1){
 
   // 4.1 - Recupero Slide Corrente e tolgo la classe "active"
   let currentSlide = slideElements[indexCurrentSlide];
@@ -29,12 +30,15 @@ rightBtnArrow.addEventListener('click', function(){
   nextSlide.classList.add('active');
   console.log("Slide Successiva: " + indexCurrentSlide);
 
-  // }
+  }
 
 });
 
 // 5. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
 leftBtnArrow.addEventListener('click', function(){
+
+  // 5.4 - Aggiungo Controllo per evitare errore e fermare l'azione alla Prima Slide Possibile
+  if (indexCurrentSlide > 1){
 
   // 5.1 - Recupero Slide Corrente e tolgo la classe "active"
   let currentSlide = slideElements[indexCurrentSlide];
@@ -48,5 +52,7 @@ leftBtnArrow.addEventListener('click', function(){
   prevSlide = slideElements[indexCurrentSlide];
   prevSlide.classList.add('active');
   console.log("Slide Precedente: " + indexCurrentSlide);
+
+  }
 
 });
