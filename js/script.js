@@ -38,7 +38,7 @@ rightBtnArrow.addEventListener('click', function(){
 leftBtnArrow.addEventListener('click', function(){
 
   // 5.4 - Aggiungo Controllo per evitare errore e fermare l'azione alla Prima Slide Possibile
-  if (indexCurrentSlide > 1){
+  if (indexCurrentSlide > 0){
 
   // 5.1 - Recupero Slide Corrente e tolgo la classe "active"
   let currentSlide = slideElements[indexCurrentSlide];
