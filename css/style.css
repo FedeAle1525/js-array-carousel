@@ -10,6 +10,16 @@ img{
   position: relative;
 }
 
+/* SLIDE */
+
+.slide.active{
+  display: block;
+}
+
+.slide{
+  display: none;
+}
+
 /* PULSANTI FRECCIA */
 
 .arrow{
