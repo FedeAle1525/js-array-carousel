@@ -32,3 +32,21 @@ rightBtnArrow.addEventListener('click', function(){
   // }
 
 });
+
+// 5. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
+leftBtnArrow.addEventListener('click', function(){
+
+  // 5.1 - Recupero Slide Corrente e tolgo la classe "active"
+  let currentSlide = slideElements[indexCurrentSlide];
+  currentSlide.classList.remove('active');
+  console.log("Slide Attiva: " + indexCurrentSlide);
+
+  // 5.2 - Decremento Indice per trovare Slide Precedente
+  indexCurrentSlide = indexCurrentSlide - 1;
+
+  // 5.3 - Recupero Slide Precedente e aggiungo la classe "active"
+  prevSlide = slideElements[indexCurrentSlide];
+  prevSlide.classList.add('active');
+  console.log("Slide Precedente: " + indexCurrentSlide);
+
+});
