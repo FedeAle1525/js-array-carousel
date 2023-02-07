@@ -34,57 +34,57 @@ rightBtnArrow.addEventListener('click', function(){
   // 6.1 - Aggiungo Controllo per evitare errore e fermare l'azione all'Ultima Slide Possibile
   if (indexCurrentSlide < arrayImg.length - 1){
 
-  // 6.2 - Recupero Slide Attiva e tolgo la classe "active"
-  let activeSlide = document.querySelector(".slide.active");
-  activeSlide.classList.remove('active');
-  console.log("Slide Attiva: " + indexCurrentSlide);
-
-  // 6.3 - Recupero immagine dentro Slide Attiva per rimuoverla
-  let activeSlideImg = document.querySelector(".slide img");
-  activeSlideImg.remove();
-
-  // 6.4 - Incremento Indice per trovare Slide Successiva
-  indexCurrentSlide = indexCurrentSlide + 1;
-
-  // 6.5 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
-  const currentSlide = document.createElement("img");
-  currentSlide.src = arrayImg[indexCurrentSlide];
-
-  // 6.6 - Recupero Slide Successiva e aggiungo la classe "active"
-  let nextSlide = document.querySelector(".slide");
-  nextSlide.classList.add('active');
-  console.log("Slide Successiva: " + indexCurrentSlide);
-
-  // 6.7 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Successiva
-  document.querySelector(".slide.active").append(currentSlide);
-
-  } else {
-
-    // 7 - "Carosello infinito", ricomincio da Prima Slide (situazione iniziale) se finisco lista di immagini (crescendo)
-    indexCurrentSlide = 0;
-
-    // 7.1 - Recupero Slide Attiva e tolgo la classe "active"
+    // 6.2 - Recupero Slide Attiva e tolgo la classe "active"
     let activeSlide = document.querySelector(".slide.active");
     activeSlide.classList.remove('active');
     console.log("Slide Attiva: " + indexCurrentSlide);
 
-    // 7.2 - Recupero immagine dentro Slide Attiva per rimuoverla
+    // 6.3 - Recupero immagine dentro Slide Attiva per rimuoverla
     let activeSlideImg = document.querySelector(".slide img");
     activeSlideImg.remove();
 
-    // 7.3 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
+    // 6.4 - Incremento Indice per trovare Slide Successiva
+    indexCurrentSlide = indexCurrentSlide + 1;
+
+    // 6.5 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
     const currentSlide = document.createElement("img");
     currentSlide.src = arrayImg[indexCurrentSlide];
 
-    // 7.4 - Recupero Slide Successiva e aggiungo la classe "active"
+    // 6.6 - Recupero Slide Successiva e aggiungo la classe "active"
     let nextSlide = document.querySelector(".slide");
     nextSlide.classList.add('active');
     console.log("Slide Successiva: " + indexCurrentSlide);
 
-    // 7.5 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Successiva
+    // 6.7 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Successiva
     document.querySelector(".slide.active").append(currentSlide);
 
-  }
+  } else {
+
+      // 7 - "Carosello infinito", ricomincio da Prima Slide (situazione iniziale) se finisco lista di immagini (crescendo)
+      indexCurrentSlide = 0;
+
+      // 7.1 - Recupero Slide Attiva e tolgo la classe "active"
+      let activeSlide = document.querySelector(".slide.active");
+      activeSlide.classList.remove('active');
+      console.log("Slide Attiva: " + indexCurrentSlide);
+
+      // 7.2 - Recupero immagine dentro Slide Attiva per rimuoverla
+      let activeSlideImg = document.querySelector(".slide img");
+      activeSlideImg.remove();
+
+      // 7.3 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
+      const currentSlide = document.createElement("img");
+      currentSlide.src = arrayImg[indexCurrentSlide];
+
+      // 7.4 - Recupero Slide Successiva e aggiungo la classe "active"
+      let nextSlide = document.querySelector(".slide");
+      nextSlide.classList.add('active');
+      console.log("Slide Successiva: " + indexCurrentSlide);
+
+      // 7.5 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Successiva
+      document.querySelector(".slide.active").append(currentSlide);
+
+    }
 
 });
 
@@ -94,56 +94,56 @@ leftBtnArrow.addEventListener('click', function(){
   // 8.1 - Aggiungo Controllo per evitare errore e fermare l'azione alla Prima Slide Possibile
   if (indexCurrentSlide > 0){
 
-  // 8.2 - Recupero Slide Corrente e tolgo la classe "active"
-  let activeSlide = document.querySelector(".slide.active");
-  activeSlide.classList.remove('active');
-  console.log("Slide Attiva: " + indexCurrentSlide);
-
-  // 8.3 - Recupero immagine dentro Slide Attiva per rimuoverla
-  let activeSlideImg = document.querySelector(".slide img");
-  activeSlideImg.remove();
-
-  // 8.4 - Decremento Indice per trovare Slide Precedente
-  indexCurrentSlide = indexCurrentSlide - 1;
-
-  // 8.5 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
-  const currentSlide = document.createElement("img");
-  currentSlide.src = arrayImg[indexCurrentSlide];
-
-  // 8.6 - Recupero Slide Precedente e aggiungo la classe "active"
-  prevSlide = document.querySelector(".slide");
-  prevSlide.classList.add('active');
-  console.log("Slide Precedente: " + indexCurrentSlide);
-
-  // 8.7 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Precedente
-  document.querySelector(".slide.active").append(currentSlide);
-
-  } else {
-
-    // 9. "Carosello infinito", ricomincio da Ultima Slide (situazione finale) se finisco lista di immagini (decrescendo)
-    indexCurrentSlide = arrayImg.length - 1;
-
-    // 9.1 - Recupero Slide Corrente e tolgo la classe "active"
+    // 8.2 - Recupero Slide Corrente e tolgo la classe "active"
     let activeSlide = document.querySelector(".slide.active");
     activeSlide.classList.remove('active');
     console.log("Slide Attiva: " + indexCurrentSlide);
 
-    // 9.2 - Recupero immagine dentro Slide Attiva per rimuoverla
+    // 8.3 - Recupero immagine dentro Slide Attiva per rimuoverla
     let activeSlideImg = document.querySelector(".slide img");
     activeSlideImg.remove();
 
-    // 9.3 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
+    // 8.4 - Decremento Indice per trovare Slide Precedente
+    indexCurrentSlide = indexCurrentSlide - 1;
+
+    // 8.5 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
     const currentSlide = document.createElement("img");
     currentSlide.src = arrayImg[indexCurrentSlide];
 
-    // 9.4 - Recupero Slide Precedente e aggiungo la classe "active"
+    // 8.6 - Recupero Slide Precedente e aggiungo la classe "active"
     prevSlide = document.querySelector(".slide");
     prevSlide.classList.add('active');
     console.log("Slide Precedente: " + indexCurrentSlide);
 
-    // 9.5 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Precedente
+    // 8.7 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Precedente
     document.querySelector(".slide.active").append(currentSlide);
 
-  }
+  } else {
+
+      // 9. "Carosello infinito", ricomincio da Ultima Slide (situazione finale) se finisco lista di immagini (decrescendo)
+      indexCurrentSlide = arrayImg.length - 1;
+
+      // 9.1 - Recupero Slide Corrente e tolgo la classe "active"
+      let activeSlide = document.querySelector(".slide.active");
+      activeSlide.classList.remove('active');
+      console.log("Slide Attiva: " + indexCurrentSlide);
+
+      // 9.2 - Recupero immagine dentro Slide Attiva per rimuoverla
+      let activeSlideImg = document.querySelector(".slide img");
+      activeSlideImg.remove();
+
+      // 9.3 - Creo elemento HTML (img) che rappresenta la Slide Corrente da visualizzare
+      const currentSlide = document.createElement("img");
+      currentSlide.src = arrayImg[indexCurrentSlide];
+
+      // 9.4 - Recupero Slide Precedente e aggiungo la classe "active"
+      prevSlide = document.querySelector(".slide");
+      prevSlide.classList.add('active');
+      console.log("Slide Precedente: " + indexCurrentSlide);
+
+      // 9.5 - Inserisco elemento HTML (img) all'interno dell'elemento che rappresenta la Slide Precedente
+      document.querySelector(".slide.active").append(currentSlide);
+
+    }
 
 });
